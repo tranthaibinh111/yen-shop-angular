@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/yen-shop-web",
+            "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,12 +25,26 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/photoswipe/dist",
+                "output": "assets/vendor/photoswipe"
+              },
+              {
+                "glob": "{webfonts/**/*,css/all.min.css}",
+                "input": "node_modules/@fortawesome/fontawesome-free",
+                "output": "assets/vendor/fontawesome"
+              }
             ],
             "styles": [
-              "src/styles.sass"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "src/styles.sass",
+              "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "es5BrowserSupport": true
           },
           "configurations": {
             "production": {
@@ -59,6 +73,150 @@
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
+                }
+              ]
+            },
+            "theme-blue": {
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "src/scss/themes/theme-blue"
+                ]
+              }
+            },
+            "theme-blue-production": {
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "src/scss/themes/theme-blue"
+                ]
+              },
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "theme-red": {
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "src/scss/themes/theme-red"
+                ]
+              }
+            },
+            "theme-red-production": {
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "src/scss/themes/theme-red"
+                ]
+              },
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "theme-green": {
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "src/scss/themes/theme-green"
+                ]
+              }
+            },
+            "theme-green-production": {
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "src/scss/themes/theme-green"
+                ]
+              },
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "theme-black": {
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "src/scss/themes/theme-black"
+                ]
+              }
+            },
+            "theme-black-production": {
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "src/scss/themes/theme-black"
+                ]
+              },
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 }
               ]
             }
@@ -93,7 +251,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "src/styles.sass",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           }
@@ -120,6 +281,29 @@
           "configurations": {
             "production": {
               "devServerTarget": "yen-shop-web:serve:production"
+            }
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": {
+                "scripts": false,
+                "styles": true
+              }
             }
           }
         }
