@@ -30,9 +30,9 @@ export class AppComponent implements AfterViewInit, OnInit {
     // with the arguments of the built-in pipe "currency"
     // https://angular.io/api/common/CurrencyPipe
     this.currency.options = {
-      code: 'USD',
-      // display: 'symbol',
-      // digitsInfo: '1.2-2',
+      code: 'VND',
+      display: '',
+      // digitsInfo: '1.0-2',
       // locale: 'en-US'
     };
 

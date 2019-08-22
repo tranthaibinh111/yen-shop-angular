@@ -3,6 +3,7 @@ import { CartService } from '../../../../shared/services/cart.service';
 import { WishlistService } from '../../../../shared/services/wishlist.service';
 import { RootService } from '../../../../shared/services/root.service';
 
+
 @Component({
     selector: 'app-header-nav',
     templateUrl: './nav.component.html',

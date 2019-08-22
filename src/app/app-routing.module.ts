@@ -1,19 +1,20 @@
 import { NgModule, Type } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
+import { PageProductComponent } from './modules/shop/pages/page-product/page-product.component';
 import { RootComponent } from './components/root/root.component';
+import { PageWishlistComponent } from './modules/shop/pages/page-wishlist/page-wishlist.component';
 
 export function makeRoutes(homeComponent: Type<any>): Routes {
   return [
     {
       path: '',
       pathMatch: 'full',
-      redirectTo: 'home'
+      redirectTo: 'trang-chu'
     },
     {
-      path: 'home',
+      path: 'trang-chu',
       component: homeComponent
     },
     {
@@ -21,15 +22,27 @@ export function makeRoutes(homeComponent: Type<any>): Routes {
       loadChildren: './modules/blog/blog.module#BlogModule'
     },
     {
-      path: 'shop',
+      path: 'danh-muc',
       loadChildren: './modules/shop/shop.module#ShopModule'
     },
     {
-      path: 'account',
-      loadChildren: './modules/account/account.module#AccountModule'
+      path: 'san-pham',
+      pathMatch: 'full',
+      redirectTo: 'san-pham/1'
     },
     {
-      path: 'site',
+      path: 'san-pham/:id',
+      component: PageProductComponent,
+      data: {
+        layout: 'standard'
+      }
+    },
+    {
+      path: 'danh-sach-yeu-thich',
+      component: PageWishlistComponent
+    },
+    {
+      path: 'gioi-thieu',
       loadChildren: './modules/site/site.module#SiteModule'
     },
     {
@@ -42,29 +55,12 @@ export function makeRoutes(homeComponent: Type<any>): Routes {
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'classic'
-  },
-  {
-    path: 'classic',
-    component: RootComponent,
-    data: {
-      headerLayout: 'classic'
-    },
-    children: makeRoutes(PageHomeOneComponent)
-  },
-  {
-    path: 'compact',
     component: RootComponent,
     data: {
       headerLayout: 'compact'
     },
     children: makeRoutes(PageHomeTwoComponent)
   },
-  {
-    path: '**',
-    redirectTo: 'classic'
-  }
 ];
 
 @NgModule({

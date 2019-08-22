@@ -15,30 +15,24 @@ import { WidgetsModule } from '../widgets/widgets.module';
 
 // components
 import { ProductsViewComponent } from './components/products-view/products-view.component';
-import { ProductTabsComponent } from './components/product-tabs/product-tabs.component';
 
 // pages
 import { PageCartComponent } from './pages/page-cart/page-cart.component';
 import { PageCategoryComponent } from './pages/page-category/page-category.component';
 import { PageCheckoutComponent } from './pages/page-checkout/page-checkout.component';
 import { PageCompareComponent } from './pages/page-compare/page-compare.component';
-import { PageProductComponent } from './pages/page-product/page-product.component';
 import { PageTrackOrderComponent } from './pages/page-track-order/page-track-order.component';
-import { PageWishlistComponent } from './pages/page-wishlist/page-wishlist.component';
 
 @NgModule({
     declarations: [
         // components
         ProductsViewComponent,
-        ProductTabsComponent,
         // pages
         PageCartComponent,
         PageCategoryComponent,
         PageCheckoutComponent,
         PageCompareComponent,
-        PageProductComponent,
-        PageTrackOrderComponent,
-        PageWishlistComponent
+        PageTrackOrderComponent
     ],
     imports: [
         // modules (angular)

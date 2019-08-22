@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Post } from '../../../../shared/interfaces/post';
 import { posts } from '../../../../../data/blog-posts';
+import { RootService } from 'src/app/shared/services/root.service';
 
 @Component({
     selector: 'app-category',
@@ -18,7 +19,7 @@ export class PageCategoryComponent implements OnDestroy {
 
     posts: Post[] = posts;
 
-    constructor(private route: ActivatedRoute) {
+    constructor(private route: ActivatedRoute, public root: RootService) {
         this.route.data.pipe(takeUntil(this.destroy$)).subscribe(data => {
             this.sidebarPosition = data.sidebarPosition;
             this.layout = data.layout;

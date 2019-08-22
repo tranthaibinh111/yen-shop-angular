@@ -1,14 +1,32 @@
 <div class="site-footer__widget footer-contacts">
-    <h5 class="footer-contacts__title">Contact Us</h5>
+  <h5 class="footer-contacts__title">Thông tin liên hệ</h5>
 
-    <div class="footer-contacts__text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in feugiat lorem. Pellentque ac placerat tellus.
-    </div>
+  <div class="footer-contacts__text">
+    Yến Vàng Miền Nam hân hạnh đón quý khách
+  </div>
 
-    <ul class="footer-contacts__contacts">
-        <li><i class="footer-contacts__icon fas fa-globe-americas"></i> {{ store.address }}</li>
-        <li><i class="footer-contacts__icon far fa-envelope"></i> {{ store.email }}</li>
-        <li><i class="footer-contacts__icon fas fa-mobile-alt"></i> {{ store.phone.join(', ') }}</li>
-        <li><i class="footer-contacts__icon far fa-clock"></i> {{ store.hours }}</li>
-    </ul>
+  <ul class="footer-contacts__contacts">
+    <li><i class="footer-contacts__icon fas fa-globe-americas"></i> {{ store.address }}</li>
+    <li>
+      <i class="footer-contacts__icon far fa-envelope"></i>
+      <a [href]="'mailto:' + store.email1 + '?Subject=Chao%20Yen%20Vang%20Mien%20Nam'" target="_top">
+        {{ store.staff1 }} : {{ store.email1 }}
+      </a>
+    </li>
+    <li>
+      <i class="footer-contacts__icon fas fa-mobile-alt"></i>
+      <a [href]="'tel:' + store.phone1" target="_top">{{ store.phone1 }}</a>
+    </li>
+    <li>
+      <i class="footer-contacts__icon far fa-envelope"></i>
+      <a [href]="'mailto:' + store.email2 + '?Subject=Chao%20Yen%20Vang%20Mien%20Nam'" target="_top">
+        {{ store.staff2 }} : {{ store.email2 }}
+      </a>
+    </li>
+    <li>
+      <i class="footer-contacts__icon fas fa-mobile-alt"></i>
+      <a [href]="'tel:' + store.phone2" target="_top">{{ store.phone2 }}</a>
+    </li>
+    <li><i class="footer-contacts__icon far fa-clock"></i> {{ store.hours }}</li>
+  </ul>
 </div>

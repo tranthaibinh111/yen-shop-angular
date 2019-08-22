@@ -23,18 +23,14 @@
         <div class="product-card__name">
             <a appClick [routerLink]="root.product(product.id)">{{ product.name }}</a>
         </div>
-        <div class="product-card__rating">
-            <app-rating [value]="product.rating"></app-rating>
-            <div class="product-card__rating-legend">{{ product.reviews }} Reviews</div>
-        </div>
         <ul *ngIf="product.features.length" class="product-card__features-list">
             <li *ngFor="let feature of product.features">{{ feature.name }}: {{ feature.value }}</li>
         </ul>
     </div>
     <div class="product-card__actions">
         <div class="product-card__availability">
-            Availability:
-            <span *ngIf="product.availability === 'in-stock'" class="text-success">In Stock</span>
+            Tình trạng:
+            <span *ngIf="product.availability === 'Còn hàng'" class="text-success">Còn hàng</span>
         </div>
         <div class="product-card__prices">
             <ng-container *ngIf="product.compareAtPrice">
@@ -46,15 +42,9 @@
             </ng-container>
         </div>
         <div class="product-card__buttons">
-            <button class="btn btn-primary product-card__addtocart" type="button" appClick (click)="addToCart()" [ngClass]="{'btn-loading': addingToCart}">Add To Cart</button>
-            <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button" appClick (click)="addToCart()" [ngClass]="{'btn-loading': addingToCart}">Add To Cart</button>
             <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button" appClick (click)="addToWishlist()" [ngClass]="{'btn-loading': addingToWishlist}">
                 <app-icon name="wishlist-16" size="16"></app-icon>
                 <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
-            </button>
-            <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button" appClick (click)="addToCompare()" [ngClass]="{'btn-loading': addingToCompare}">
-                <app-icon name="compare-16" size="16"></app-icon>
-                <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
             </button>
         </div>
     </div>

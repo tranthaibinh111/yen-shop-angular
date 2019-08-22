@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { theme } from '../../../data/theme';
+
 
 @Component({
     selector: 'app-footer',
@@ -7,7 +7,5 @@ import { theme } from '../../../data/theme';
     styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-    theme = theme;
-
     constructor() { }
 }

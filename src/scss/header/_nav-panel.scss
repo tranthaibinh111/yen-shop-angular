@@ -32,6 +32,13 @@
     display: block;
     fill: $nav-panel-logo-color;
 }
+
+.nav-panel__logo {
+  a:first-of-type{
+    color: inherit
+  }
+}
+
 .nav-panel__departments {
     flex-shrink: 0;
 }

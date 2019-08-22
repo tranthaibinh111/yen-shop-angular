@@ -27,20 +27,23 @@ import { AppComponent } from './app.component';
 import { RootComponent } from './components/root/root.component';
 
 // pages
-import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
-
+import { PageProductComponent } from './modules/shop/pages/page-product/page-product.component';
+import { ProductTabsComponent } from './modules/shop/components/product-tabs/product-tabs.component';
+import { PageWishlistComponent } from './modules/shop/pages/page-wishlist/page-wishlist.component';
 
 @NgModule({
     declarations: [
         // components
         AppComponent,
         RootComponent,
+        ProductTabsComponent,
         // pages
-        PageHomeOneComponent,
         PageNotFoundComponent,
-        PageHomeTwoComponent
+        PageHomeTwoComponent,
+        PageProductComponent,
+        PageWishlistComponent
     ],
     imports: [
         // modules (angular)

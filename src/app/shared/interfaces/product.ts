@@ -28,4 +28,5 @@ export interface Product {
     availability: string;
     features: ProductFeature[];
     options: Array<any>;
+    description: string;
 }
