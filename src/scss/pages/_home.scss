@@ -45,8 +45,21 @@
   line-height: 0;
 }
 
-@media (max-width: 549px) {
-  .float-contact {
-    display: none
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99999;
+  padding: 6px 0;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+
+  button {
+    border-radius: 15px;
   }
+}
+
+.show-scrollTop {
+  opacity: 1;
+  transition: all .2s ease-in-out;
 }

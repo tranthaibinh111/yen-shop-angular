@@ -6,6 +6,32 @@
 <app-mobile-menu></app-mobile-menu>
 <!-- mobilemenu / end -->
 
+<!--Contact-->
+<div class="float-contact">
+  <button class="chat-zalo">
+    <a [href]="'http://zalo.me/' + store.phone1.replace(' ', '').replace(' ', '')"  target="_blank">Chat Zalo ({{store.staff1}})</a>
+  </button>
+  <button class="chat-zalo">
+    <a [href]="'http://zalo.me/' + store.phone2.replace(' ', '').replace(' ', '')" target="_blank">Chat Zalo ({{store.staff2}})</a>
+  </button>
+  <button class="chat-face">
+    <a href="http://m.me/yenvangmiennam" target="_blank">Chat Facebook</a>
+  </button>
+  <button class="hotline">
+    <a href="'tel:' + store.phone1" target="_blank">Hotline 1: {{ store.phone1 }} ({{store.staff1}})</a>
+  </button>
+  <button class="hotline">
+    <a href="'tel:' + store.phone2" target="_blank">Hotline 2: {{ store.phone2 }} ({{store.staff2}})</a>
+  </button>
+</div>
+
+<!--Scroll to top-->
+<div class="scroll-to-top" [ngClass]="{'show-scrollTop': windowScrolled}">
+  <button class="bg-warning" (click)="scrollToTop()">
+      <i class="fa fa-chevron-up"></i>
+  </button>
+</div>
+
 <!-- site -->
 <div class="site">
   <!-- mobile site__header -->
@@ -34,20 +60,4 @@
 </div>
 <!-- site / end -->
 
-<div class="float-contact">
-  <button class="chat-zalo">
-    <a [href]="'http://zalo.me/' + store.phone1.replace(' ', '').replace(' ', '')"  target="_blank">Chat Zalo ({{store.staff1}})</a>
-  </button>
-  <button class="chat-zalo">
-    <a [href]="'http://zalo.me/' + store.phone2.replace(' ', '').replace(' ', '')" target="_blank">Chat Zalo ({{store.staff2}})</a>
-  </button>
-  <button class="chat-face">
-    <a href="http://m.me/yenvangmiennam" target="_blank">Chat Facebook</a>
-  </button>
-  <button class="hotline">
-    <a href="'tel:' + store.phone1" target="_blank">Hotline 1: {{ store.phone1 }} ({{store.staff1}})</a>
-  </button>
-  <button class="hotline">
-    <a href="'tel:' + store.phone2" target="_blank">Hotline 2: {{ store.phone2 }} ({{store.staff2}})</a>
-  </button>
-</div>
+
