@@ -3,20 +3,6 @@
     {label: 'Sản phẩm', url: ''}
 ]"></app-page-header>
 
-<ng-container *ngIf="columns === 3">
-    <div class="container">
-        <div class="shop-layout shop-layout--sidebar--{{ sidebarPosition }}">
-            <ng-container *ngIf="sidebarPosition === 'start'" [ngTemplateOutlet]="sidebar"></ng-container>
-            <div class="shop-layout__content">
-                <div class="block">
-                    <app-products-view [products]="products" [layout]="viewMode" grid="grid-3-sidebar" [limit]="15"></app-products-view>
-                </div>
-            </div>
-            <ng-container *ngIf="sidebarPosition === 'end'" [ngTemplateOutlet]="sidebar"></ng-container>
-        </div>
-    </div>
-</ng-container>
-
 <ng-container *ngIf="columns > 3">
     <div class="container">
         <div class="block">
