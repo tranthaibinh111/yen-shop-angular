@@ -37,7 +37,7 @@ export class BlockSlideshowComponent {
             image_mobile: 'assets/images/slides/slide-2-mobile.jpg'
         },
         {
-            title: 'Mrs. Ngân<br>039 573 5218 (zalo)',
+            title: 'Ms. Ngân<br>039 573 5218 (zalo)',
             text: 'Sức khỏe của bạn là sự thành công của chúng tôi',
             image_classic: 'assets/images/slides/slide-3.jpg',
             image_full: 'assets/images/slides/slide-3-full.jpg',
