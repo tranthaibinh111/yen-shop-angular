@@ -2,6 +2,8 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   mode: 'none',
@@ -12,7 +14,10 @@ module.exports = {
   target: 'node',
   resolve: { extensions: ['.ts', '.js'] },
   optimization: {
-    minimize: false
+    minimize: true,
+    minimizer: [new UglifyJsPlugin({
+      include: /\.min\.js$/
+    })]
   },
   output: {
     // Puts the output at the root of the dist folder
@@ -42,6 +47,9 @@ module.exports = {
       /(.+)?express(\\|\/)(.+)?/,
       path.join(__dirname, 'src'),
       {}
-    )
+    ),
+    new CompressionPlugin({
+      test: /(\.js)|(\.css)$/
+    })
   ]
 };
