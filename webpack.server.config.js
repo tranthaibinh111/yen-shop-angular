@@ -16,7 +16,7 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [new UglifyJsPlugin({
-      include: /\.min\.js$/
+      include: /\.js$/
     })]
   },
   output: {
@@ -26,17 +26,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /(\.s[ac]ss)|(\.css)$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          'style-loader',
-          // Translates CSS into CommonJS
-          'css-loader',
-          // Compiles Sass to CSS
-          'sass-loader',
-        ],
-      },
       { test: /\.ts$/, loader: 'ts-loader' },
       {
         // Mark files inside `@angular/core` as using SystemJS style dynamic imports.
