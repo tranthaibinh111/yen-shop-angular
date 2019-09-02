@@ -12,7 +12,7 @@
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run yen-shop-web:server:production",
+    "build:client-and-server-bundles": "ng build --prod --configuration=theme-blue-production && ng run yen-shop-web:server:production",
     "start:ssr": "npm run build:ssr && npm run serve:ssr"
   },
   "private": true,
@@ -32,7 +32,6 @@
     "bootstrap": "^4.3.1",
     "core-js": "^3.2.1",
     "express": "^4.17.1",
-    "font-awesome": "^4.7.0",
     "ng5-slider": "^1.2.4",
     "ngx-bootstrap": "^5.1.1",
     "ngx-owl-carousel-o": "^2.0.1",
