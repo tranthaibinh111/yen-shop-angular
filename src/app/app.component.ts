@@ -48,7 +48,7 @@ export class AppComponent implements AfterViewInit, OnInit {
       this.toastr.success(`Sản phẩm "${product.name}" thêm vào để so sánh!`);
     });
     this.wishlist.onAdding$.subscribe(product => {
-      this.toastr.success(`Sản phẩm "${product.name}" thêm vào danh sách mong muốn!`);
+      this.toastr.success(`Sản phẩm "${product.name}" thêm vào danh sách yêu thích!`);
     });
   }
 
