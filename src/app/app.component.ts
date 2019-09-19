@@ -42,13 +42,13 @@ export class AppComponent implements AfterViewInit, OnInit {
       }
     });
     this.cart.onAdding$.subscribe(product => {
-      this.toastr.success(`Product "${product.name}" added to cart!`);
+      this.toastr.success(`Sản phẩm "${product.name}" thêm vào giỏ hàng!`);
     });
     this.compare.onAdding$.subscribe(product => {
-      this.toastr.success(`Product "${product.name}" added to compare!`);
+      this.toastr.success(`Sản phẩm "${product.name}" thêm vào để so sánh!`);
     });
     this.wishlist.onAdding$.subscribe(product => {
-      this.toastr.success(`Product "${product.name}" added to wish list!`);
+      this.toastr.success(`Sản phẩm "${product.name}" thêm vào danh sách mong muốn!`);
     });
   }
 
