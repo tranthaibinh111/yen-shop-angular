@@ -1,9 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Post } from '../../../../shared/interfaces/post';
-import { PostCommentsList } from '../../../../shared/interfaces/post-comments-list';
 import { posts } from '../../../../../data/blog-posts';
-import { postComments } from '../../../../../data/blog-post-comments';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RootService } from 'src/app/shared/services/root.service';
 import { map } from 'rxjs/operators';
 
@@ -15,22 +13,24 @@ import { map } from 'rxjs/operators';
 export class PostComponent {
   @Input() layout: 'classic' | 'full' = 'classic';
 
-  post: Post
+  post: Post;
   posts: Post[] = posts;
-  comments: PostCommentsList = postComments;
 
-  constructor(private route: ActivatedRoute, public root: RootService) {
+  constructor(private router: Router, private route: ActivatedRoute, public root: RootService) {
     this.route.params.pipe(map(params => {
-      if (params.hasOwnProperty('id')) {
-        const post = posts.find(eachPost => eachPost.id === parseInt(params.id));
-        this.posts = posts.filter(eachPost => eachPost.id !== parseInt(params.id));
+      let post: Post;
 
-        if (post) {
-          return post;
-        }
+      if (params.hasOwnProperty('slug')) {
+        post = posts.find(eachPost => eachPost.slug === params.slug);
+
+        if (post)
+          this.posts = posts.filter(eachPost => eachPost.id !== post.id);
       }
 
-      return posts[posts.length - 1];
+      if (post)
+        return post;
+      else
+        this.router.navigate(['/khong-tim-thay']);
     })).subscribe(post => this.post = post);
   }
 }

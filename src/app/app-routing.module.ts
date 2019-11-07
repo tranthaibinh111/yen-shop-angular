@@ -2,7 +2,6 @@ import { NgModule, Type } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
-import { PageProductComponent } from './modules/shop/pages/page-product/page-product.component';
 import { RootComponent } from './components/root/root.component';
 import { PageWishlistComponent } from './modules/shop/pages/page-wishlist/page-wishlist.component';
 
@@ -22,20 +21,8 @@ export function makeRoutes(homeComponent: Type<any>): Routes {
       loadChildren: './modules/blog/blog.module#BlogModule'
     },
     {
-      path: 'danh-muc',
+      path: 'cua-hang',
       loadChildren: './modules/shop/shop.module#ShopModule'
-    },
-    {
-      path: 'san-pham',
-      pathMatch: 'full',
-      redirectTo: 'san-pham/1'
-    },
-    {
-      path: 'san-pham/:id',
-      component: PageProductComponent,
-      data: {
-        layout: 'standard'
-      }
     },
     {
       path: 'danh-sach-yeu-thich',

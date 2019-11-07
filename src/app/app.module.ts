@@ -20,7 +20,6 @@ import { FooterModule } from './modules/footer/footer.module';
 import { HeaderModule } from './modules/header/header.module';
 import { MobileModule } from './modules/mobile/mobile.module';
 import { SharedModule } from './shared/shared.module';
-import { WidgetsModule } from './modules/widgets/widgets.module';
 
 // components
 import { AppComponent } from './app.component';
@@ -29,8 +28,6 @@ import { RootComponent } from './components/root/root.component';
 // pages
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
-import { PageProductComponent } from './modules/shop/pages/page-product/page-product.component';
-import { ProductTabsComponent } from './modules/shop/components/product-tabs/product-tabs.component';
 import { PageWishlistComponent } from './modules/shop/pages/page-wishlist/page-wishlist.component';
 
 @NgModule({
@@ -38,11 +35,9 @@ import { PageWishlistComponent } from './modules/shop/pages/page-wishlist/page-w
         // components
         AppComponent,
         RootComponent,
-        ProductTabsComponent,
         // pages
         PageNotFoundComponent,
         PageHomeTwoComponent,
-        PageProductComponent,
         PageWishlistComponent
     ],
     imports: [
@@ -61,7 +56,6 @@ import { PageWishlistComponent } from './modules/shop/pages/page-wishlist/page-w
         HeaderModule,
         MobileModule,
         SharedModule,
-        WidgetsModule
     ],
     providers: [
         // { provide: LOCALE_ID, useValue: 'it' }

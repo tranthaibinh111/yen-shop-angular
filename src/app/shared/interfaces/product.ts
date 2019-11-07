@@ -19,6 +19,7 @@ export interface ProductReview {
 export interface Product {
     id: number;
     name: string;
+    slug: string;
     price: number;
     compareAtPrice: number|null;
     images: string[];

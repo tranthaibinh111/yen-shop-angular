@@ -18,7 +18,12 @@ const routes: Routes = [
     }
   },
   {
-    path: 'bai-viet/:id',
+    path: 'bai-viet',
+    pathMatch: 'full',
+    redirectTo: 'bai-viet/9-tac-dung-cua-yen-sao-doi-voi-suc-khoe-co-the-ban-chua-biet'
+  },
+  {
+    path: 'bai-viet/:slug',
     component: PagePostComponent,
     data: {
       layout: 'full'

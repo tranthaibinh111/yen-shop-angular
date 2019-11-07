@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MobileMenuService } from '../../../../shared/services/mobile-menu.service';
 import { WishlistService } from '../../../../shared/services/wishlist.service';
-import { CartService } from '../../../../shared/services/cart.service';
 import { RootService } from 'src/app/shared/services/root.service';
 
 @Component({
@@ -14,6 +13,5 @@ export class MobileHeaderComponent {
     public root: RootService,
     public menu: MobileMenuService,
     public wishlist: WishlistService,
-    public cart: CartService
   ) { }
 }

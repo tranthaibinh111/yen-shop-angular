@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { CartService } from '../../services/cart.service';
 import { Product } from '../../interfaces/product';
 import { WishlistService } from '../../services/wishlist.service';
-import { CompareService } from '../../services/compare.service';
 import { QuickviewService } from '../../services/quickview.service';
 import { RootService } from '../../services/root.service';
 import { CurrencyService } from '../../services/currency.service';
@@ -29,9 +27,7 @@ export class ProductCardComponent implements OnInit, OnDestroy {
     constructor(
         private cd: ChangeDetectorRef,
         public root: RootService,
-        public cart: CartService,
         public wishlist: WishlistService,
-        public compare: CompareService,
         public quickview: QuickviewService,
         public currency: CurrencyService
     ) { }
@@ -47,20 +43,6 @@ export class ProductCardComponent implements OnInit, OnDestroy {
         this.destroy$.complete();
     }
 
-    addToCart(): void {
-        if (this.addingToCart) {
-            return;
-        }
-
-        this.addingToCart = true;
-        this.cart.add(this.product, 1).subscribe({
-            complete: () => {
-                this.addingToCart = false;
-                this.cd.markForCheck();
-            }
-        });
-    }
-
     addToWishlist(): void {
         if (this.addingToWishlist) {
             return;
@@ -70,20 +52,6 @@ export class ProductCardComponent implements OnInit, OnDestroy {
         this.wishlist.add(this.product).subscribe({
             complete: () => {
                 this.addingToWishlist = false;
-                this.cd.markForCheck();
-            }
-        });
-    }
-
-    addToCompare(): void {
-        if (this.addingToCompare) {
-            return;
-        }
-
-        this.addingToCompare = true;
-        this.compare.add(this.product).subscribe({
-            complete: () => {
-                this.addingToCompare = false;
                 this.cd.markForCheck();
             }
         });

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { filters } from '../../../../../data/shop-filters';
 import { Product } from '../../../../shared/interfaces/product';
 import { products } from '../../../../../data/shop-products';
 import { ActivatedRoute } from '@angular/router';
-import { ProductFilter } from '../../../../shared/interfaces/product-filter';
 import { RootService } from 'src/app/shared/services/root.service';
 
 @Component({
@@ -13,7 +11,6 @@ import { RootService } from 'src/app/shared/services/root.service';
 })
 export class PageCategoryComponent {
     products: Product[] = products;
-    filters: ProductFilter[] = filters;
 
     columns: 3|4|5 = 3;
     viewMode: 'grid'|'grid-with-features'|'list' = 'grid';

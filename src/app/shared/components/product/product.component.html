@@ -42,10 +42,6 @@
           title="Wishlist" appClick (click)="addToWishlist()" [ngClass]="{'btn-loading': addingToWishlist}">
           <app-icon name="wishlist-16" size="16"></app-icon>
         </button>
-        <button type="button" class="btn btn-sm btn-light btn-svg-icon" data-toggle="tooltip" data-placement="right"
-          title="Compare" appClick (click)="addToCompare()" [ngClass]="{'btn-loading': addingToCompare}">
-          <app-icon name="compare-16" size="16"></app-icon>
-        </button>
       </div>
       <h1 class="product__name">{{ product.name }}</h1>
       <div class="product__rating">
