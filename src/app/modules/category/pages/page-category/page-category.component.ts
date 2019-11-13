@@ -1,7 +1,13 @@
+// Angular
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+
+// Yen Shop
+// Interface
 import { Product } from '../../../../shared/interfaces/product';
 import { products } from '../../../../../data/shop-products';
-import { ActivatedRoute } from '@angular/router';
+// Service
 import { RootService } from 'src/app/shared/services/root.service';
 
 @Component({
@@ -17,12 +23,20 @@ export class PageCategoryComponent {
     sidebarPosition: 'start'|'end' = 'start'; // For LTR scripts "start" is "left" and "end" is "right"
     header: '';
 
-    constructor(private route: ActivatedRoute, public root: RootService) {
+    constructor(
+        private title: Title,
+        private route: ActivatedRoute,
+        public root: RootService
+    ) {
         this.route.data.subscribe(data => {
             this.columns = 'columns' in data ? data.columns : this.columns;
             this.viewMode = 'viewMode' in data ? data.viewMode : this.viewMode;
             this.sidebarPosition = 'sidebarPosition' in data ? data.sidebarPosition : this.sidebarPosition;
             this.header = 'header' in data ? data.header : this.header;
+
+            // Setting the title head of browser tab
+            if (this.header)
+                this.title.setTitle(this.header);
         });
     }
 }

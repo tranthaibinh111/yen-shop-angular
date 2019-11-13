@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
 import { RootComponent } from './components/root/root.component';
-import { PageWishlistComponent } from './modules/shop/pages/page-wishlist/page-wishlist.component';
 
 export function makeRoutes(homeComponent: Type<any>): Routes {
   return [
@@ -14,19 +13,26 @@ export function makeRoutes(homeComponent: Type<any>): Routes {
     },
     {
       path: 'trang-chu',
-      component: homeComponent
+      component: homeComponent,
+      data: {
+        header: 'Yến vàng miền Nam'
+      }
     },
     {
       path: 'blog',
       loadChildren: './modules/blog/blog.module#BlogModule'
     },
     {
-      path: 'cua-hang',
+      path: 'danh-muc',
+      loadChildren: './modules/category/category.module#CategoryModule'
+    },
+    {
+      path: 'san-pham',
       loadChildren: './modules/shop/shop.module#ShopModule'
     },
     {
       path: 'danh-sach-yeu-thich',
-      component: PageWishlistComponent
+      loadChildren: './modules/wishlist/wishlist.module#WishlistModule'
     },
     {
       path: 'gioi-thieu',

@@ -25,6 +25,7 @@ import { LoadingBarComponent } from './components/loading-bar/loading-bar.compon
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { PostCardComponent } from './components/post-card/post-card.component';
+import { ProductsViewComponent } from './components/products-view/products-view.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductComponent } from './components/product/product.component';
 import { QuickviewComponent } from './components/quickview/quickview.component';
@@ -53,6 +54,7 @@ import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
         PageHeaderComponent,
         PaginationComponent,
         PostCardComponent,
+        ProductsViewComponent,
         ProductCardComponent,
         ProductComponent,
         QuickviewComponent,
@@ -88,6 +90,7 @@ import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
         PageHeaderComponent,
         PaginationComponent,
         PostCardComponent,
+        ProductsViewComponent,
         ProductCardComponent,
         ProductComponent,
         QuickviewComponent,

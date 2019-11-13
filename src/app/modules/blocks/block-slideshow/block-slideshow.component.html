@@ -8,7 +8,7 @@
                     <owl-carousel-o [options]="options" appOwlPreventClick>
                         <ng-container *ngFor="let slide of slides">
                             <ng-template carouselSlide>
-                                <a class="block-slideshow__slide" [href]="root.url('/cua-hang')" appClick>
+                                <a class="block-slideshow__slide" [href]="root.url('/danh-muc')" appClick>
                                     <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" [ngStyle]="{'background-image': 'url('+(withDepartments ? slide.image_classic : slide.image_full)+')'}"></div>
                                     <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" [ngStyle]="{'background-image': 'url('+slide.image_mobile+')'}"></div>
                                     <div class="block-slideshow__slide-content">

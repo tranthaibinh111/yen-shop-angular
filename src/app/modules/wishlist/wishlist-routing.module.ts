@@ -1,18 +1,22 @@
+// Angular
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PageProductComponent } from './pages/page-product/page-product.component';
+
+// pages
+import { PageWishlistComponent } from './pages/page-wishlist/page-wishlist.component';
+
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'yen-tinh-loai1-100'
+    redirectTo: 'yen-sao'
   },
   {
-    path: ':slug',
-    component: PageProductComponent,
+    path: 'yen-sao',
+    component: PageWishlistComponent,
     data: {
-      layout: 'standard'
+      header: 'Yến sào'
     }
   }
 ];
@@ -21,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ShopRoutingModule { }
+export class WishlistRoutingModule { }

@@ -1,9 +1,15 @@
+// Angular
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+
+// RxJS
+import { map } from 'rxjs/operators';
+
+// Yen Shop
 import { products } from '../../../../../data/shop-products';
 import { Product } from '../../../../shared/interfaces/product';
-import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { RootService } from 'src/app/shared/services/root.service';
+import { RootService } from '../../../../shared/services/root.service';
 
 @Component({
   selector: 'app-page-product',
@@ -16,7 +22,12 @@ export class PageProductComponent {
   layout: 'standard' | 'columnar' | 'sidebar' = 'standard';
   sidebarPosition: 'start' | 'end' = 'start'; // For LTR scripts "start" is "left" and "end" is "right"
 
-  constructor(private router: Router, private route: ActivatedRoute, public root: RootService) {
+  constructor(
+    private router: Router,
+    private title: Title,
+    private route: ActivatedRoute,
+    public root: RootService
+  ) {
     this.route.data.subscribe(data => {
       this.layout = 'layout' in data ? data.layout : this.layout;
       this.sidebarPosition = 'sidebarPosition' in data ? data.sidebarPosition : this.sidebarPosition;
@@ -32,9 +43,14 @@ export class PageProductComponent {
       }
 
       if(product)
+      {
+        this.title.setTitle(`Sản phẩm: ${product.name}`);
         return product;
+      }
       else
+      {
         this.router.navigate(['/khong-tim-thay']);
+      }
     })).subscribe(product => this.product = product);
   }
 }

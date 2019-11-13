@@ -7,14 +7,15 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'tat-ca'
+    redirectTo: 'bai-viet-moi'
   },
   {
-    path: 'tat-ca',
+    path: 'bai-viet-moi',
     component: PageCategoryComponent,
     data: {
       sidebarPosition: 'end', // one of [start, end]. For LTR scripts "start" is "left" and "end" is "right"
-      layout: 'list' // one of [classic, grid, list]
+      layout: 'list', // one of [classic, grid, list]
+      header: 'Bài viết mới về  yến sào'
     }
   },
   {

@@ -28,7 +28,6 @@ import { RootComponent } from './components/root/root.component';
 // pages
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
-import { PageWishlistComponent } from './modules/shop/pages/page-wishlist/page-wishlist.component';
 
 @NgModule({
     declarations: [
@@ -38,7 +37,6 @@ import { PageWishlistComponent } from './modules/shop/pages/page-wishlist/page-w
         // pages
         PageNotFoundComponent,
         PageHomeTwoComponent,
-        PageWishlistComponent
     ],
     imports: [
         // modules (angular)

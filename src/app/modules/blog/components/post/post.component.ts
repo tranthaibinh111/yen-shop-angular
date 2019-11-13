@@ -1,9 +1,14 @@
+// Angular
 import { Component, Input } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+
+// RxJS
+import { map } from 'rxjs/operators';
+
 import { Post } from '../../../../shared/interfaces/post';
 import { posts } from '../../../../../data/blog-posts';
-import { ActivatedRoute, Router } from '@angular/router';
-import { RootService } from 'src/app/shared/services/root.service';
-import { map } from 'rxjs/operators';
+import { RootService } from '../../../../shared/services/root.service';
 
 @Component({
   selector: 'app-post-details',
@@ -16,7 +21,12 @@ export class PostComponent {
   post: Post;
   posts: Post[] = posts;
 
-  constructor(private router: Router, private route: ActivatedRoute, public root: RootService) {
+  constructor(
+    private title: Title,
+    private router: Router,
+    private route: ActivatedRoute,
+    public root: RootService
+  ) {
     this.route.params.pipe(map(params => {
       let post: Post;
 
@@ -28,9 +38,14 @@ export class PostComponent {
       }
 
       if (post)
+      {
+        this.title.setTitle(post.title);
         return post;
+      }
       else
+      {
         this.router.navigate(['/khong-tim-thay']);
+      }
     })).subscribe(post => this.post = post);
   }
 }
