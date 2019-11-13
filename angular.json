@@ -44,7 +44,12 @@
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [],
-            "es5BrowserSupport": true
+            "es5BrowserSupport": true,
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/scss/themes/theme-default"
+              ]
+            }
           },
           "configurations": {
             "production": {

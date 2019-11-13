@@ -1,4 +1,9 @@
+// Angular
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+
+// Yen Shop
+import { StoreService } from '../../../../shared/services/store.service'
 
 @Component({
     selector: 'app-contact-us',
@@ -6,5 +11,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./page-contact-us.component.scss']
 })
 export class PageContactUsComponent {
-    constructor() { }
+    constructor(private title: Title, public store: StoreService) { 
+        this.title.setTitle('Yến vàng miền Nam: thông tin liên hệ');
+    }
 }

@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { RootService } from 'src/app/shared/services/root.service';
 
 @Component({
     selector: 'app-post',
@@ -14,7 +15,7 @@ export class PagePostComponent implements OnDestroy {
     sidebarPosition: 'start'|'end' = 'end'; // For LTR scripts "start" is "left" and "end" is "right"
     layout: 'classic'|'full' = 'classic';
 
-    constructor(private route: ActivatedRoute) {
+    constructor(private route: ActivatedRoute, public root: RootService) {
         this.route.data.pipe(takeUntil(this.destroy$)).subscribe(data => {
             this.sidebarPosition = data.sidebarPosition;
             this.layout = data.layout;

@@ -26,6 +26,11 @@ export class CurrencyFormatPipe implements PipeTransform {
         digitsInfo = digitsInfo || this.service.options.digitsInfo;
         locale = locale || this.service.options.locale;
 
-        return this.currencyPipe.transform(value, currencyCode, display, digitsInfo, locale);
+        let strFormat = this.currencyPipe.transform(value, currencyCode, display, digitsInfo, locale);
+
+        if (currencyCode && currencyCode === "VND")
+          strFormat = `${strFormat} VND`;
+
+        return strFormat;
     }
 }

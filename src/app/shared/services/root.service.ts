@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class RootService {
-    path = '';
+  path = '';
 
-    constructor() { }
+  constructor() { }
 
-    product(id: number): any[] | string {
-        return `${this.path}/shop/product/${id}`;
-    }
+  product(slug: string): any[] | string {
+    return `${this.path}/san-pham/${slug}`;
+  }
 
-    post(): string {
-        return `${this.path}/blog/post-classic`;
-    }
+  post(slug: string): string {
+    return `${this.path}/blog/bai-viet/${slug}`;
+  }
 
-    url(url: string): string {
-        return this.path + url;
-    }
+  url(url: string): string {
+    return this.path + url;
+  }
 }

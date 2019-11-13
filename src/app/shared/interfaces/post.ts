@@ -1,6 +1,10 @@
 export interface Post {
-    title: string;
-    image: string;
-    categories: string[];
-    date: string;
+  id: number;
+  title: string;
+  slug: string;
+  image: string;
+  categories: string[];
+  date: string;
+  summary: string;
+  content: string;
 }

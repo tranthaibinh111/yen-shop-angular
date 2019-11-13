@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RootService } from '../../shared/services/root.service';
+
 
 @Component({
     selector: 'app-not-found',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
     styleUrls: ['./page-not-found.component.scss']
 })
 export class PageNotFoundComponent {
-    constructor() { }
+    constructor(public root: RootService,) { }
 }

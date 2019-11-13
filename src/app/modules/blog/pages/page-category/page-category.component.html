@@ -1,15 +1,12 @@
-<app-page-header [header]="'Latest News'" [breadcrumbs]="[
-    {label: 'Home',        url: '../../'},
-    {label: 'Blog',        url: '../'},
-    {label: 'Latest News', url: ''}
+<app-page-header [header]="header" [breadcrumbs]="[
+    {label: 'Trang chủ', url: root.url('/trang-chu')},
+    {label: 'Blog', url: root.url('/blog')},
+    {label: 'Bài viết mới', url: ''}
 ]"></app-page-header>
 
 <div class="container">
     <div class="row">
-        <div *ngIf="sidebarPosition === 'start'" class="col-12 col-lg-4 order-1 order-lg-0">
-            <app-sidebar position="start"></app-sidebar>
-        </div>
-        <div class="col-12 col-lg-8">
+        <div class="col-12 col-lg-12">
             <div class="block">
                 <div class="posts-view">
                     <div class="posts-view__list posts-list posts-list--layout--{{ layout }}">
@@ -23,14 +20,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="posts-view__pagination">
-                        <app-pagination [current]="1" [siblings]="2" [total]="10"></app-pagination>
-                    </div>
                 </div>
             </div>
-        </div>
-        <div *ngIf="sidebarPosition === 'end'" class="col-12 col-lg-4">
-            <app-sidebar position="end"></app-sidebar>
         </div>
     </div>
 </div>

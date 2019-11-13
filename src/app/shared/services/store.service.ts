@@ -4,14 +4,14 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
 })
 export class StoreService {
-    address = '715 Fake Street, New York 10021 USA';
-    email = 'stroyka@example.com';
-    phone = ['(800) 060-0730', '(800) 060-0730'];
-    hours = 'Mon-Sat 10:00pm - 7:00pm';
-
-    get primaryPhone(): string|null {
-        return this.phone.length > 0 ? this.phone[0] : null;
-    }
+    address = '26/16/16 TTN01, Tổ 77 KP7, Tân Thới Nhất, Quận 12, Hồ Chí Minh, Việt Nam';
+    staff1 = 'Mr. Thắng'
+    email1 = 'thangtran@yenvangmiennam.com';
+    phone1 = '094 280 1401';
+    staff2 = 'Ms. Ngân'
+    email2 = 'nganpham@yenvangmiennam.com';
+    phone2 = '039 573 5218';
+    hours = 'Thứ 2 - Chủ nhật 8:00am - 10:00pm';
 
     constructor() { }
 }

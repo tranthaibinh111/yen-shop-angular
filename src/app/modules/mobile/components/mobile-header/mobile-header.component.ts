@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { MobileMenuService } from '../../../../shared/services/mobile-menu.service';
 import { WishlistService } from '../../../../shared/services/wishlist.service';
-import { CartService } from '../../../../shared/services/cart.service';
+import { RootService } from 'src/app/shared/services/root.service';
 
 @Component({
-    selector: 'app-mobile-header',
-    templateUrl: './mobile-header.component.html',
-    styleUrls: ['./mobile-header.component.scss']
+  selector: 'app-mobile-header',
+  templateUrl: './mobile-header.component.html',
+  styleUrls: ['./mobile-header.component.scss']
 })
 export class MobileHeaderComponent {
-    constructor(
-        public menu: MobileMenuService,
-        public wishlist: WishlistService,
-        public cart: CartService
-    ) { }
+  constructor(
+    public root: RootService,
+    public menu: MobileMenuService,
+    public wishlist: WishlistService,
+  ) { }
 }

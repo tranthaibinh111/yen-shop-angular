@@ -1,0 +1,12 @@
+<app-page-header [header]="header" [breadcrumbs]="[
+    {label: 'Trang chủ',         url: root.url('/trang-chu')},
+    {label: 'Sản phẩm', url: ''}
+]"></app-page-header>
+
+<ng-container *ngIf="columns > 3">
+    <div class="container">
+        <div class="block">
+            <app-products-view [products]="products" [layout]="viewMode" [grid]="'grid-'+columns+'-full'" [limit]="15"></app-products-view>
+        </div>
+    </div>
+</ng-container>

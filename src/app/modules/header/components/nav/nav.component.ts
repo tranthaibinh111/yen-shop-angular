@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { CartService } from '../../../../shared/services/cart.service';
 import { WishlistService } from '../../../../shared/services/wishlist.service';
 import { RootService } from '../../../../shared/services/root.service';
+
 
 @Component({
     selector: 'app-header-nav',
@@ -15,7 +15,6 @@ export class NavComponent {
 
     constructor(
         public root: RootService,
-        public cart: CartService,
         public wishlist: WishlistService
     ) { }
 }

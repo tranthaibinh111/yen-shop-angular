@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StoreService } from 'src/app/shared/services/store.service';
 
 @Component({
     selector: 'app-block-banner',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
     styleUrls: ['./block-banner.component.scss']
 })
 export class BlockBannerComponent {
-    constructor() { }
+    constructor(public store: StoreService) { }
 }
