@@ -1,5 +1,5 @@
 // Angular
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -16,7 +16,7 @@ import { RootService } from '../../../../shared/services/root.service';
   templateUrl: './page-product.component.html',
   styleUrls: ['./page-product.component.scss']
 })
-export class PageProductComponent {
+export class PageProductComponent implements OnInit {
   products: Product[] = products;
   product: Product;
   layout: 'standard' | 'columnar' | 'sidebar' = 'standard';
@@ -43,14 +43,15 @@ export class PageProductComponent {
       }
 
       if(product)
-      {
-        this.title.setTitle(`Sản phẩm: ${product.name}`);
         return product;
-      }
       else
-      {
         this.router.navigate(['/khong-tim-thay']);
-      }
     })).subscribe(product => this.product = product);
   }
+
+  ngOnInit() {
+    if (this.product)
+      this.title.setTitle(`Sản phẩm: ${this.product.name} - Yến Vàng Miền Nam`);
+  }
+
 }

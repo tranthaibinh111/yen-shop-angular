@@ -16,7 +16,7 @@ const routes: Routes = [
     data: {
       columns: 4,
       viewMode: 'list',
-      header: 'Yến sào Minh Quang'
+      header: 'Sản phẩm Yến Sào Minh Quang'
     }
   }
 ];

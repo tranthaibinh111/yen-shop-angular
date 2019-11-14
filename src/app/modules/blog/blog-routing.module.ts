@@ -15,7 +15,7 @@ const routes: Routes = [
     data: {
       sidebarPosition: 'end', // one of [start, end]. For LTR scripts "start" is "left" and "end" is "right"
       layout: 'list', // one of [classic, grid, list]
-      header: 'Bài viết mới về  yến sào'
+      header: 'Bài viết mới về yến sào'
     }
   },
   {
