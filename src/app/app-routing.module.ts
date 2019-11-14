@@ -13,10 +13,7 @@ export function makeRoutes(homeComponent: Type<any>): Routes {
     },
     {
       path: 'trang-chu',
-      component: homeComponent,
-      data: {
-        header: 'Yến vàng miền Nam'
-      }
+      component: homeComponent
     },
     {
       path: 'blog',

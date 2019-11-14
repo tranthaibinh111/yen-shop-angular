@@ -1,5 +1,5 @@
 // Angular
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -15,7 +15,7 @@ import { RootService } from '../../../../shared/services/root.service';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
-export class PostComponent {
+export class PostComponent implements OnInit {
   @Input() layout: 'classic' | 'full' = 'classic';
 
   post: Post;
@@ -38,14 +38,15 @@ export class PostComponent {
       }
 
       if (post)
-      {
-        this.title.setTitle(post.title);
         return post;
-      }
       else
-      {
         this.router.navigate(['/khong-tim-thay']);
-      }
     })).subscribe(post => this.post = post);
   }
+
+  ngOnInit() {
+    if (this.post)
+      this.title.setTitle(`${this.post.title} - Yến Vàng Miền Nam`);
+  }
+
 }
