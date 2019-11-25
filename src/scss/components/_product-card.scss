@@ -283,3 +283,13 @@
 .product-card--layout--list {
     @include product-card-list();
 }
+
+@media (min-width: breakpoint(md-start)) {
+  .product-card__new-price {
+    font-size: 15px;
+  }
+
+  .product-card__old-price {
+    font-size: 12px;
+  }
+}
