@@ -1,0 +1,97 @@
+## https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04
+
+upstream yen_vang_mien_nam {
+    server 127.0.0.1:4000;
+}
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server ipv6only=on;
+
+    location / {
+        try_files $uri $uri @backend;
+    }
+
+    location @backend {
+        proxy_pass http://yen_vang_mien_nam;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_http_version 1.1;
+        proxy_set_header X-NginX-Proxy true;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_cache_bypass $http_upgrade;
+        proxy_redirect off;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+## https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-18-04
+
+upstream ssr_yen_shop_web {
+    server 127.0.0.1:4000;
+}
+
+## http://yenvangmiennam.com redirects to https://www.yenvangmiennam.com
+server {
+    listen 80;
+    listen [::]:80;
+    server_name yenvangmiennam.com;
+
+    location / {
+        return 301 https://www.$server_name$request_uri;
+    }
+}
+
+## http://www.yenvangmiennam.com redirects to https://www.yenvangmiennam.com
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server ipv6only=on;
+    server_name www.yenvangmiennam.com;
+
+    location / {
+        return 301 https://$server_name$request_uri;
+    }
+}
+
+## https://yenvangmiennam.com redirects to https://www.yenvangmiennam.com
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name yenvangmiennam.com;
+
+    location / {
+        return 301 https://www.$server_name$request_uri;
+    }
+}
+
+## Serves https://www.yenvangmiennam.com
+server {
+    server_name www.yenvangmiennam.com;
+    listen 443 ssl http2 default_server;
+    listen [::]:443 ssl http2 default_server ipv6only=on;
+
+    ssl_certificate /etc/letsencrypt/live/yenvangmiennam.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/yenvangmiennam.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+    location / {
+        try_files $uri $uri @backend;
+    }
+ 
+    location @backend {
+        proxy_pass http://yen_vang_mien_nam;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_http_version 1.1;
+        proxy_set_header X-NginX-Proxy true;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_cache_bypass $http_upgrade;
+        proxy_redirect off;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
