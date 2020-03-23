@@ -62,7 +62,7 @@ export const products: Product[] = [
     id: 4,
     name: 'Yến thô (50 gram)',
     slug: 'yen-tho-loai1-50',
-    price: 1300000,
+    price: 1350000,
     compareAtPrice: 1500000,
     images: ['assets/images/products/4/yen-tho-50.jpg'],
     badges: ['sale'],
