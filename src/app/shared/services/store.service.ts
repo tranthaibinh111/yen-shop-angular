@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
 })
 export class StoreService {
-    address = '26/16/16 TTN01, Tổ 77 KP7, Tân Thới Nhất, Quận 12, Hồ Chí Minh, Việt Nam';
+    address = 'Chung cư Saigon Mia, Đường 9A, KDC Trung Sơn, Xã Bình Hưng, Huyện Bình Chánh, TP.Hồ Chí Minh.';
     staff1 = 'Mr. Thắng'
     email1 = 'thangtran@yenvangmiennam.com';
     phone1 = '094 280 1401';
